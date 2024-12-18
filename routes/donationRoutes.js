@@ -1,7 +1,11 @@
 const express = require('express');
-const donationController = require('../controllers/donationController');
 const router = express.Router();
+const donationController = require('../controllers/donationController');
 
+// دریافت تمام کمک‌ها
+router.get('/', donationController.getDonations);
+
+// ایجاد کمک مالی جدید
 router.post('/', donationController.createDonation);
 
 module.exports = router;
