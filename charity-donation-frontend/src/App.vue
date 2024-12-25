@@ -1,26 +1,50 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <header>
+      <h1>Charity Donation System</h1>
+    </header>
+    <main>
+      <!-- نمایش کامپوننت‌ها بر اساس مسیر -->
+      <router-view />
+    </main>
+    <footer>
+      <p>&copy; 2024 Charity Donation System</p>
+    </footer>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+};
 </script>
 
 <style>
+/* استایل‌های عمومی برای کل برنامه */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
+}
+
+header {
+  background: #42b983;
+  color: white;
+  padding: 20px 0;
+}
+
+footer {
+  background: #35495e;
+  color: white;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+main {
+  margin: 20px auto;
+  max-width: 800px;
 }
 </style>
