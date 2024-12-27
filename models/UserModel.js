@@ -27,7 +27,6 @@ const userSchema = new mongoose.Schema({
   }]
 });
 
-// هش کردن رمز عبور قبل از ذخیره‌سازی
 userSchema.pre('save', async function(next) {
   if (!this.isModified('password')) return next();
   const salt = await bcrypt.genSalt(10);
