@@ -1,12 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '@/views/Home.vue';
+import Home from '../views/Home.vue';
+import Donate from '../views/Donate.vue'; // اضافه کردن صفحه Donate
 
 const routes = [
-  {
-    path: '/',
-    name: 'HomeView',
-    component: HomeView,
-  },
+  { path: '/', name: 'Home', component: Home },
+  { path: '/donate', name: 'Donate', component: Donate }, // مسیر برای صفحه Donate
 ];
 
 const router = createRouter({

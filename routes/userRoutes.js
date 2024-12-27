@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const signupController = require('../controllers/signupController');
 const signinController = require('../controllers/signinController');
-const User = require('../models/UserModel'); // اضافه کردن مدل User
-const Donation = require('../models/DonationModel'); // اضافه کردن مدل Donation
+const User = require('../models/UserModel'); 
+const Donation = require('../models/DonationModel');
 
 // مسیر برای ثبت‌نام
 router.post('/signup', signupController.handleSignUp);
@@ -14,7 +14,7 @@ router.post('/signin', signinController.handleSignIn);
 // مسیر برای دریافت اطلاعات کاربر
 router.get('/users/:id', async (req, res) => {
   try {
-    const user = await User.findById(req.params.id).select('-password'); // حذف پسورد از داده
+    const user = await User.findById(req.params.id).select('-password');
     if (!user) {
       return res.status(404).json({ success: false, message: 'User not found' });
     }
@@ -28,7 +28,7 @@ router.get('/users/:id', async (req, res) => {
 // مسیر برای دریافت تاریخچه اهدایی‌ها
 router.get('/users/:id/donations', async (req, res) => {
   try {
-    const donations = await Donation.find({ userId: req.params.id }).sort({ date: -1 }); // مرتب‌سازی نزولی
+    const donations = await Donation.find({ userId: req.params.id }).sort({ date: -1 });
     res.json({ success: true, donations });
   } catch (error) {
     console.error(error);
@@ -39,7 +39,7 @@ router.get('/users/:id/donations', async (req, res) => {
 // مسیر برای ثبت اهدا
 router.post('/users/:id/donations', async (req, res) => {
   try {
-    const { amount, message } = req.body; // اطلاعات ارسال شده از کلاینت
+    const { amount, message } = req.body;
     const donation = new Donation({
       userId: req.params.id,
       amount,
